@@ -1172,16 +1172,6 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@expo-google-fonts/marvel@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@expo-google-fonts/marvel/-/marvel-0.1.0.tgz#dd78a4167165565dd2a46633b313530cc76a9fde"
-  integrity sha512-NiYXFw9ORYmgr/Hpe10Bnh3HaK4yb/gqLRo7/UBNuU64+jzS2NartAdZUV7fd9qAg59Otu/Lk+eEizTHrhg9Qw==
-
-"@expo-google-fonts/roboto@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@expo-google-fonts/roboto/-/roboto-0.1.0.tgz#2897dc09db4ceb9f5ba337103090e1d70236e811"
-  integrity sha512-q+68xWZpLIS/iPC5jwoakEskyTVgIC1jfpNzWFMnUnBoZsWRq1rlpnleR3MjKDeN1Vt0NcvUI/aaZoCyIXhisw==
-
 "@expo/config-plugins@1.0.23":
   version "1.0.23"
   resolved "https://registry.yarnpkg.com/@expo/config-plugins/-/config-plugins-1.0.23.tgz#a05ec1b935c4b3a7e35826c891ce852dde0e99d7"

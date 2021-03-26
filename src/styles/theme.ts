@@ -5,9 +5,9 @@ export const schema = {
     red: '#FF0000',
   },
   fontFamily: {
-    RobotoRegular: 'Roboto_400Regular',
-    RobotoLight: 'Roboto_300Light',
-    RobotoBold: 'Roboto_700Bold',
-    MarvelRegular: 'Marvel_400Regular',
+    Axiforma_Regular: 'Axiforma_Regular',
+    Axiforma_Bold: 'Axiforma_Bold',
+    Axiforma_Light: 'Axiforma_Light',
+    Marvel_Regular: 'Marvel_Regular',
   },
 };
