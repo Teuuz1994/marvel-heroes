@@ -1,24 +1,13 @@
 import 'react-native-gesture-handler';
 import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import * as Font from 'expo-font';
 
-import { schema } from './src/styles/theme';
+import { SignIn } from './src/screens';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  textExample: {
-    fontFamily: 'Axiforma_Regular',
-    fontSize: 18,
-  },
-});
+import { schema } from './src/styles/theme';
 
 const App = () => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -44,12 +33,8 @@ const App = () => {
 
   return (
     <ThemeProvider theme={schema}>
-      <StatusBar style="auto" />
-      <View style={styles.container}>
-        <Text style={styles.textExample}>
-          Open up App.tsx to start working on your app!
-        </Text>
-      </View>
+      <StatusBar style="light" />
+      <SignIn />
     </ThemeProvider>
   );
 };
