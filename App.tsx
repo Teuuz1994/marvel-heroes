@@ -4,8 +4,10 @@ import { StatusBar } from 'expo-status-bar';
 import { ActivityIndicator } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import * as Font from 'expo-font';
+import FlashMessages from 'react-native-flash-message';
 
 import { SignIn } from './src/screens';
+import { AuthProvider } from './src/hooks/Fakeauth';
 
 import { schema } from './src/styles/theme';
 
@@ -34,7 +36,10 @@ const App = () => {
   return (
     <ThemeProvider theme={schema}>
       <StatusBar style="light" />
-      <SignIn />
+      <AuthProvider>
+        <SignIn />
+      </AuthProvider>
+      <FlashMessages position="top" />
     </ThemeProvider>
   );
 };

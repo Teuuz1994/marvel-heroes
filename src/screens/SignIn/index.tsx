@@ -4,6 +4,7 @@ import { FormHandles } from '@unform/core';
 import Checkbox from '@react-native-community/checkbox';
 
 import { ContainerView, Input, Button } from '../../components';
+import { useAuth } from '../../hooks/Fakeauth';
 
 import {
   Logo,
@@ -27,9 +28,13 @@ const SignIn = () => {
   const [isChecked, setIsChecked] = useState(false);
 
   const formRef = useRef<FormHandles>(null);
+  const { signIn } = useAuth();
 
-  const handleSubmit = (data: FormData) => {
-    console.log(data);
+  const handleSubmit = async (data: FormData) => {
+    await signIn({
+      email: data.email,
+      password: data.password,
+    });
   };
 
   return (
