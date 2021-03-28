@@ -2,9 +2,12 @@ import React, { useRef, useState } from 'react';
 
 import { FormHandles } from '@unform/core';
 import Checkbox from '@react-native-community/checkbox';
+import * as Yup from 'yup';
+import { showMessage } from 'react-native-flash-message';
 
 import { ContainerView, Input, Button } from '../../components';
 import { useAuth } from '../../hooks/Fakeauth';
+import { getValidationErros } from '../../utils/getValidationErrors';
 
 import {
   Logo,
@@ -31,10 +34,40 @@ const SignIn = () => {
   const { signIn } = useAuth();
 
   const handleSubmit = async (data: FormData) => {
-    await signIn({
-      email: data.email,
-      password: data.password,
-    });
+    try {
+      const schema = Yup.object().shape({
+        email: Yup.string().required(),
+        password: Yup.string().required(),
+      });
+
+      await schema.validate(data, { abortEarly: false });
+
+      await signIn({
+        email: data.email,
+        password: data.password,
+        saveMyUserState: isChecked,
+      });
+    } catch (error) {
+      if (error instanceof Yup.ValidationError) {
+        const erros = getValidationErros(error);
+
+        formRef.current?.setErrors(erros);
+      }
+
+      showMessage({
+        message:
+          'Não foi possível efetuar o login, verifique os dados e tente novamente',
+        type: 'danger',
+        autoHide: true,
+        duration: 5000,
+        textStyle: {
+          color: '#fff',
+          fontFamily: 'Axiforma_Regular',
+          fontSize: 18,
+        },
+        style: { justifyContent: 'center', alignItems: 'center' },
+      });
+    }
   };
 
   return (

@@ -14,6 +14,7 @@ import { User } from '../models/User';
 interface UserCredentials {
   email: string;
   password: string;
+  saveMyUserState: boolean;
 }
 
 interface AuthContext {
@@ -57,7 +58,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     });
   };
 
-  const signIn = async ({ email, password }: UserCredentials) => {
+  const signIn = async ({
+    email,
+    password,
+    saveMyUserState,
+  }: UserCredentials) => {
     const findUser = await getUser(email, password);
     console.log('user', findUser);
 
@@ -65,10 +70,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       showMessage({
         type: 'danger',
         message: 'Usuário não cadastrado',
-        icon: 'danger',
         autoHide: true,
         duration: 5000,
-        backgroundColor: '#ff0000',
         textStyle: {
           color: '#fff',
           fontFamily: 'Axiforma_Regular',
@@ -79,8 +82,24 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       return;
     }
 
-    await AsyncStorage.setItem('@Mavel:user', JSON.stringify(findUser));
+    if (saveMyUserState) {
+      await AsyncStorage.setItem('@Mavel:user', JSON.stringify(findUser));
+    }
+
     setUser(findUser);
+
+    showMessage({
+      message: 'Login efetuado com sucesso',
+      type: 'success',
+      autoHide: true,
+      duration: 5000,
+      textStyle: {
+        color: '#fff',
+        fontFamily: 'Axiforma_Regular',
+        fontSize: 18,
+      },
+      style: { justifyContent: 'center', alignItems: 'center' },
+    });
   };
 
   const signOut = async () => {
