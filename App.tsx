@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import * as Font from 'expo-font';
 import FlashMessages from 'react-native-flash-message';
 
-import { SignIn } from './src/screens';
+import { Routes } from './src/routes';
 import { AuthProvider } from './src/hooks/Fakeauth';
 
 import { schema } from './src/styles/theme';
@@ -37,7 +37,7 @@ const App = () => {
     <ThemeProvider theme={schema}>
       <StatusBar style="light" />
       <AuthProvider>
-        <SignIn />
+        <Routes />
       </AuthProvider>
       <FlashMessages position="top" />
     </ThemeProvider>
