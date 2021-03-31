@@ -21,3 +21,4 @@ export { default as ImageCaptainMarvel } from './captain-marvel.png';
 export { default as ImageCaptainAmerica } from './captain-america.png';
 export { default as ImageCapaOrigemPorJoeQuesada } from './capa-origem-por-joe-quesada.png';
 export { default as ImageAvangersInfinityWar } from './avengers-infinity-war.png';
+export { default as ImageUserAvatar } from './user-avatar.png';

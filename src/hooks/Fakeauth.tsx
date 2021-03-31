@@ -6,10 +6,12 @@ import React, {
   ReactNode,
 } from 'react';
 
+import { Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { showMessage } from 'react-native-flash-message';
 
 import { User } from '../models/User';
+import { ImageUserAvatar } from '../assets/images';
 
 interface UserCredentials {
   email: string;
@@ -36,8 +38,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     {
       email: 'teste@teste.com',
       password: '123123',
-      avatar:
-        'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60',
+      avatar: Image.resolveAssetSource(ImageUserAvatar).uri,
     },
   ];
 

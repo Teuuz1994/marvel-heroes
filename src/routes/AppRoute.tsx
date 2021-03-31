@@ -4,7 +4,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { Home } from '../screens';
-import { DrawerRoutes } from './DrawerRoutes';
 
 const Stack = createStackNavigator();
 
@@ -16,7 +15,6 @@ export const AppRoute = () => {
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Drawer" component={DrawerRoutes} />
       </Stack.Navigator>
     </NavigationContainer>
   );
