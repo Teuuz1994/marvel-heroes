@@ -10,7 +10,7 @@ import { Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { showMessage } from 'react-native-flash-message';
 
-import { User } from '../models/User';
+import { User } from '../models';
 import { ImageUserAvatar } from '../assets/images';
 
 interface UserCredentials {
@@ -65,7 +65,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     saveMyUserState,
   }: UserCredentials) => {
     const findUser = await getUser(email, password);
-    console.log('user', findUser);
 
     if (!findUser) {
       showMessage({

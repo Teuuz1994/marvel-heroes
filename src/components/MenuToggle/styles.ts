@@ -1,8 +1,12 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
 import { RectButton } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 import Constants from 'expo-constants';
+
+interface SideBar {
+  showSidebarMenu: boolean;
+}
 
 export const Container = styled.View`
   width: 100%;
@@ -13,11 +17,12 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.black};
 `;
 
-export const MenuSidebar = styled.View`
+export const MenuSidebar = styled.View<SideBar>`
+  display: ${({ showSidebarMenu }) => (showSidebarMenu ? 'flex' : 'none')};
   height: 100%;
   width: 100%;
 
-  max-width: 60px;
+  max-width: 40.7px;
 
   background-color: ${({ theme }) => theme.colors.black};
 
@@ -62,7 +67,7 @@ export const Logo = styled.View`
   justify-content: center;
   align-items: center;
   padding: 5px;
-  margin-right: 100px;
+  margin-right: 80px;
 
   background-color: ${({ theme }) => theme.colors.red};
 `;
@@ -74,8 +79,17 @@ export const Logo_Text = styled.Text`
   text-transform: uppercase;
 `;
 
-export const MenuButton = styled(RectButton)`
+export const MenuButton = styled(RectButton)<SideBar>`
   background-color: transparent;
+
+  ${({ showSidebarMenu }) =>
+    showSidebarMenu
+      ? css`
+          margin-left: 0;
+        `
+      : css`
+          margin-left: 41px;
+        `};
 `;
 
 export const ViewGradient = styled(LinearGradient)`

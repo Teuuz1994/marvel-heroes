@@ -3,7 +3,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { Home } from '../screens';
+import { Persons } from '../screens';
 
 const Stack = createStackNavigator();
 
@@ -11,10 +11,10 @@ export const AppRoute = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="Persons"
         screenOptions={{ headerShown: false }}
       >
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Persons" component={Persons} />
       </Stack.Navigator>
     </NavigationContainer>
   );

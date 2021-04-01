@@ -26,9 +26,10 @@ import {
 
 interface MenuToggleProps {
   children: ReactNode;
+  showSidebarMenu: boolean;
 }
 
-const MenuToggle = ({ children }: MenuToggleProps) => {
+const MenuToggle = ({ children, showSidebarMenu }: MenuToggleProps) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const navigation = useNavigation();
@@ -82,7 +83,7 @@ const MenuToggle = ({ children }: MenuToggleProps) => {
         </TouchableOpacity>
       </Modal>
 
-      <MenuSidebar>
+      <MenuSidebar showSidebarMenu={showSidebarMenu}>
         <ViewGradient colors={['transparent', '#ff0000']}>
           <ButtonDegrade onPress={() => navigation.navigate('Persons')}>
             <TitleButtonDegrade
@@ -121,7 +122,7 @@ const MenuToggle = ({ children }: MenuToggleProps) => {
       </MenuSidebar>
       <ContentWithHeader>
         <Header>
-          <MenuButton onPress={toggleModal}>
+          <MenuButton showSidebarMenu={showSidebarMenu} onPress={toggleModal}>
             <Ionicons name="menu" size={32} color="#ff0000" />
           </MenuButton>
 
