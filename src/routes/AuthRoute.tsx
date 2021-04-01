@@ -1,7 +1,10 @@
 import React from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from '@react-navigation/stack';
 
 import { SignIn } from '../screens';
 
@@ -12,7 +15,10 @@ export const AuthRoute = () => {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="SignIn"
-        screenOptions={{ headerShown: false }}
+        screenOptions={{
+          headerShown: false,
+          ...TransitionPresets.ModalSlideFromBottomIOS,
+        }}
       >
         <Stack.Screen name="SignIn" component={SignIn} />
       </Stack.Navigator>

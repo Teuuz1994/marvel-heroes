@@ -61,13 +61,20 @@ export const Header = styled.View`
   padding-top: ${Constants.statusBarHeight + 36.6}px;
 `;
 
-export const Logo = styled.View`
+export const Logo = styled.View<SideBar>`
   max-height: 30px;
 
   justify-content: center;
   align-items: center;
   padding: 5px;
-  margin-right: 80px;
+  ${({ showSidebarMenu }) =>
+    showSidebarMenu
+      ? css`
+          margin-right: 70px;
+        `
+      : css`
+          margin-right: 30px;
+        `}
 
   background-color: ${({ theme }) => theme.colors.red};
 `;

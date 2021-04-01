@@ -4,6 +4,7 @@ interface PersonsList {
   image: {
     uri: string;
   };
+  appearences: string[];
 }
 
 export default PersonsList;

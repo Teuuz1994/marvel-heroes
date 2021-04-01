@@ -139,7 +139,7 @@ export const AppearenceImage = styled.Image`
   width: 55px;
   height: 55px;
 
-  border-radius: 50px;
+  border-radius: 8px;
 
   margin-right: 7px;
 `;

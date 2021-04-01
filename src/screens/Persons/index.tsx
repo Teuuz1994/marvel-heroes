@@ -88,7 +88,7 @@ const Persons = () => {
             <AppearenceImage
               key={appearence.image.uri}
               source={{ uri: appearence.image.uri }}
-              resizeMode="contain"
+              resizeMode="cover"
             />
           ))}
         </AppearencesImagesContent>

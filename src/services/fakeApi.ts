@@ -139,6 +139,19 @@ export function getPersonsList(): Promise<PersonsList[]> {
         image: {
           uri: Image.resolveAssetSource(ImageIronSpider).uri,
         },
+        appearences: [
+          'Homem-Aranha 1',
+          'Homem-Aranha 2',
+          'Homem-Aranha 3',
+          'Espetacular Homem-Aranha 1',
+          'Espetacular Homem-Aranha 2',
+          'Capitão América - Guerra Civil',
+          'Homem-Aranha no AranhaVerso',
+          'Homem-Aranha - Homecoming',
+          'Vingadores - Guerra Infinita',
+          'Vingadores - Ultimato',
+          'Homem-Aranha - Far for home',
+        ],
       },
       {
         name: 'Wanda Maximoff',
@@ -147,6 +160,7 @@ export function getPersonsList(): Promise<PersonsList[]> {
         image: {
           uri: Image.resolveAssetSource(ImageWandaMaximoff).uri,
         },
+        appearences: ['Lorem', 'ipsum', 'dolor', 'sit', 'amet'],
       },
       {
         name: 'Thanos',
@@ -155,6 +169,7 @@ export function getPersonsList(): Promise<PersonsList[]> {
         image: {
           uri: Image.resolveAssetSource(ImageThanos).uri,
         },
+        appearences: ['Lorem', 'ipsum', 'dolor', 'sit', 'amet'],
       },
       {
         name: 'Hulk',
@@ -163,6 +178,7 @@ export function getPersonsList(): Promise<PersonsList[]> {
         image: {
           uri: Image.resolveAssetSource(ImageHulk).uri,
         },
+        appearences: ['Lorem', 'ipsum', 'dolor', 'sit', 'amet'],
       },
     ];
 

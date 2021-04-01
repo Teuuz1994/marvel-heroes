@@ -126,7 +126,7 @@ const MenuToggle = ({ children, showSidebarMenu }: MenuToggleProps) => {
             <Ionicons name="menu" size={32} color="#ff0000" />
           </MenuButton>
 
-          <Logo>
+          <Logo showSidebarMenu={showSidebarMenu}>
             <Logo_Text>MARVEL</Logo_Text>
           </Logo>
         </Header>
