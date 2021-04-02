@@ -147,6 +147,7 @@ export const DividerColumAvailable = styled.View`
 export const AvailableHero = styled.View`
   justify-content: flex-start;
   align-items: flex-start;
+  padding: 15px;
 `;
 
 export const AvalableOfFans = styled(HeroName)`
@@ -161,4 +162,9 @@ export const StarsContent = styled.View`
   align-items: center;
 `;
 
-export const CloseModalTouchable = styled.TouchableOpacity``;
+export const CloseModalTouchable = styled.TouchableOpacity`
+  position: absolute;
+
+  right: -80px;
+  top: 45px;
+`;

@@ -13,6 +13,12 @@ import {
   ImageHulk,
   ImageThanos,
 } from '../assets/images';
+import {
+  ImageCropedHulk,
+  ImageCropedIronSpider,
+  ImageCropedThanos,
+  ImageCropedWandaMaximoff,
+} from '../assets/images/croped-images';
 import { TopHero, PersonsList } from '../models';
 
 export function getTopHeroes(): Promise<TopHero[]> {
@@ -138,6 +144,9 @@ export function getPersonsList(): Promise<PersonsList[]> {
           'Após ser mordido por uma aranha radioativa, Peter Parker se torna o amigo da vizinhança, o Homem-Aranha.',
         image: {
           uri: Image.resolveAssetSource(ImageIronSpider).uri,
+          croped: {
+            uri: Image.resolveAssetSource(ImageCropedIronSpider).uri,
+          },
         },
         appearences: [
           'Homem-Aranha 1',
@@ -159,6 +168,9 @@ export function getPersonsList(): Promise<PersonsList[]> {
           'Wanda Maximoff foi sequestrada da Sérvia e trazida para a Montanha Wundagore, base do Alto Evolucionário.',
         image: {
           uri: Image.resolveAssetSource(ImageWandaMaximoff).uri,
+          croped: {
+            uri: Image.resolveAssetSource(ImageCropedWandaMaximoff).uri,
+          },
         },
         appearences: ['Lorem', 'ipsum', 'dolor', 'sit', 'amet'],
       },
@@ -168,6 +180,9 @@ export function getPersonsList(): Promise<PersonsList[]> {
           "A lua Titã era governada por Mentor (A'Lars), quando então reinava paz e tecnologia. Mentor tinha dois filhos: Eros e Thanos.",
         image: {
           uri: Image.resolveAssetSource(ImageThanos).uri,
+          croped: {
+            uri: Image.resolveAssetSource(ImageCropedThanos).uri,
+          },
         },
         appearences: ['Lorem', 'ipsum', 'dolor', 'sit', 'amet'],
       },
@@ -177,6 +192,9 @@ export function getPersonsList(): Promise<PersonsList[]> {
           'Na história original dos quadrinhos, o Hulk é um selvagem e poderoso alter ego do Dr. Robert Bruce Banner.',
         image: {
           uri: Image.resolveAssetSource(ImageHulk).uri,
+          croped: {
+            uri: Image.resolveAssetSource(ImageCropedHulk).uri,
+          },
         },
         appearences: ['Lorem', 'ipsum', 'dolor', 'sit', 'amet'],
       },

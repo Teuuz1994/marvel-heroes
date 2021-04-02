@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState, useMemo, useCallback } from 'react';
+import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import { TouchableOpacity } from 'react-native';
 
 import {
@@ -80,7 +80,7 @@ const MorePersons = () => {
     ));
   }, [heroes, toggleOpenModal]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const getHeroes = async () => {
       const heroesList = await getPersonsList();
 
@@ -121,7 +121,9 @@ const MorePersons = () => {
             <ModalHeroInformationsContainer colors={['#FF0000', '#800000']}>
               <CroppedHeroImage
                 source={
-                  heroDetails ? { uri: heroDetails.image.uri } : { uri: '' }
+                  heroDetails
+                    ? { uri: heroDetails.image.croped.uri }
+                    : { uri: '' }
                 }
                 resizeMode="cover"
               />
@@ -144,6 +146,9 @@ const MorePersons = () => {
                   </DividerColumAvailable>
 
                   <StarsContent>
+                    <FontAwesome name="star" size={20} color="#FFB300" />
+                    <FontAwesome name="star" size={20} color="#FFB300" />
+                    <FontAwesome name="star" size={20} color="#FFB300" />
                     <FontAwesome name="star" size={20} color="#FFB300" />
                     <FontAwesome name="star" size={20} color="#84848D" />
                   </StarsContent>

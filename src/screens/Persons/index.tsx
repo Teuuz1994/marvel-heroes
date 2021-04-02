@@ -100,7 +100,7 @@ const Persons = () => {
     return persons.map(person => (
       <PersonsContent key={person.name}>
         <PersonImage
-          source={{ uri: person.image.uri }}
+          source={{ uri: person.image.croped.uri }}
           resizeMode="cover"
           resizeMethod="resize"
         />

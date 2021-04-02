@@ -3,6 +3,9 @@ interface PersonsList {
   description: string;
   image: {
     uri: string;
+    croped: {
+      uri: string;
+    };
   };
   appearences: string[];
 }
