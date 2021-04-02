@@ -6,7 +6,7 @@ import {
   TransitionPresets,
 } from '@react-navigation/stack';
 
-import { Persons, MorePersons } from '../screens';
+import { Persons, MorePersons, Comics } from '../screens';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +22,7 @@ export const AppRoute = () => {
       >
         <Stack.Screen name="Persons" component={Persons} />
         <Stack.Screen name="MorePersons" component={MorePersons} />
+        <Stack.Screen name="Comics" component={Comics} />
       </Stack.Navigator>
     </NavigationContainer>
   );

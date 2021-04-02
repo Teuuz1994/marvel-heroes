@@ -12,14 +12,25 @@ import {
   ImageIronSpider,
   ImageHulk,
   ImageThanos,
+  ImageHqParabola,
+  ImageStanLee,
+  ImageMoebiusIlustrador,
+  ImageCapaOrigemPorJoeQuesada,
+  ImageHqThor,
+  ImageHqThanos,
 } from '../assets/images';
 import {
   ImageCropedHulk,
   ImageCropedIronSpider,
   ImageCropedThanos,
   ImageCropedWandaMaximoff,
+  ImageCropedHqParabola,
+  ImageCropedHqThanos,
+  ImageCropedHqThor,
+  ImageCropedHqWolverine,
 } from '../assets/images/croped-images';
-import { TopHero, PersonsList } from '../models';
+import { IconAmazonLogo, IconAmericanasLogo } from '../assets/icons';
+import { TopHero, PersonsList, TopComics, ComicList } from '../models';
 
 export function getTopHeroes(): Promise<TopHero[]> {
   return new Promise(resolve => {
@@ -197,6 +208,212 @@ export function getPersonsList(): Promise<PersonsList[]> {
           },
         },
         appearences: ['Lorem', 'ipsum', 'dolor', 'sit', 'amet'],
+      },
+    ];
+
+    resolve(persons);
+  });
+}
+
+export function getTopComics(): Promise<TopComics[]> {
+  return new Promise(resolve => {
+    const comics: TopComics[] = [
+      {
+        name: 'Parábola',
+        description:
+          'O único oponente do Devorador de Mundos é o herói que ele aprisionou na Terra: o Surfista Prateado...',
+        image: {
+          uri: Image.resolveAssetSource(ImageHqParabola).uri,
+        },
+        creators: [
+          {
+            image: {
+              uri: Image.resolveAssetSource(ImageStanLee).uri,
+            },
+          },
+          {
+            image: {
+              uri: Image.resolveAssetSource(ImageMoebiusIlustrador).uri,
+            },
+          },
+        ],
+      },
+      {
+        name: 'Wolverine - Origem',
+        description:
+          'Origem é uma minissérie em quadrinhos publicada pela Marvel Comics em seis edições, entre 2001 e 2002',
+        image: {
+          uri: Image.resolveAssetSource(ImageCapaOrigemPorJoeQuesada).uri,
+        },
+        creators: [
+          {
+            image: {
+              uri: Image.resolveAssetSource(ImageStanLee).uri,
+            },
+          },
+          {
+            image: {
+              uri: Image.resolveAssetSource(ImageMoebiusIlustrador).uri,
+            },
+          },
+        ],
+      },
+      {
+        name: 'Thor - Vikings',
+        description:
+          'Garth Ennis e sua violência atacam novamente na HQ que leva a violência das histórias de Thor ao limite!',
+        image: {
+          uri: Image.resolveAssetSource(ImageHqThor).uri,
+        },
+        creators: [
+          {
+            image: {
+              uri: Image.resolveAssetSource(ImageStanLee).uri,
+            },
+          },
+          {
+            image: {
+              uri: Image.resolveAssetSource(ImageMoebiusIlustrador).uri,
+            },
+          },
+        ],
+      },
+      {
+        name: 'Em Busca do Poder',
+        description:
+          'Para satisfazer os desejos de sua amada Morte e provar o seu amor, Thanos vai em busca das 6 joias do infinito a fim de matar metade da humanidade.',
+        image: {
+          uri: Image.resolveAssetSource(ImageHqThanos).uri,
+        },
+        creators: [
+          {
+            image: {
+              uri: Image.resolveAssetSource(ImageStanLee).uri,
+            },
+          },
+          {
+            image: {
+              uri: Image.resolveAssetSource(ImageMoebiusIlustrador).uri,
+            },
+          },
+        ],
+      },
+    ];
+
+    resolve(comics);
+  });
+}
+
+export function getComicList(): Promise<ComicList[]> {
+  return new Promise(resolve => {
+    const persons: ComicList[] = [
+      {
+        name: 'Parábola',
+        description:
+          'O único oponente do Devorador de Mundos é o herói que ele aprisionou na Terra: o Surfista Prateado...',
+        image: {
+          uri: Image.resolveAssetSource(ImageHqParabola).uri,
+          croped: {
+            uri: Image.resolveAssetSource(ImageCropedHqParabola).uri,
+          },
+        },
+        avalableStores: [
+          {
+            store: {
+              image: {
+                uri: Image.resolveAssetSource(IconAmazonLogo).uri,
+              },
+            },
+          },
+          {
+            store: {
+              image: {
+                uri: Image.resolveAssetSource(IconAmericanasLogo).uri,
+              },
+            },
+          },
+        ],
+      },
+      {
+        name: 'Wolverine - Origem',
+        description:
+          'Origem é uma minissérie em quadrinhos publicada pela Marvel Comics em seis edições, entre 2001 e 2002',
+        image: {
+          uri: Image.resolveAssetSource(ImageCapaOrigemPorJoeQuesada).uri,
+          croped: {
+            uri: Image.resolveAssetSource(ImageCropedHqWolverine).uri,
+          },
+        },
+        avalableStores: [
+          {
+            store: {
+              image: {
+                uri: Image.resolveAssetSource(IconAmazonLogo).uri,
+              },
+            },
+          },
+          {
+            store: {
+              image: {
+                uri: Image.resolveAssetSource(IconAmericanasLogo).uri,
+              },
+            },
+          },
+        ],
+      },
+      {
+        name: 'Thor - Vikings',
+        description:
+          'Garth Ennis e sua violência atacam novamente na HQ que leva a violência das histórias de Thor ao limite!',
+        image: {
+          uri: Image.resolveAssetSource(ImageHqThor).uri,
+          croped: {
+            uri: Image.resolveAssetSource(ImageCropedHqThor).uri,
+          },
+        },
+        avalableStores: [
+          {
+            store: {
+              image: {
+                uri: Image.resolveAssetSource(IconAmazonLogo).uri,
+              },
+            },
+          },
+          {
+            store: {
+              image: {
+                uri: Image.resolveAssetSource(IconAmericanasLogo).uri,
+              },
+            },
+          },
+        ],
+      },
+      {
+        name: 'Em Busca do Poder',
+        description:
+          'Para satisfazer os desejos de sua amada Morte e provar o seu amor, Thanos vai em busca das 6 joias do infinito a fim de matar metade da humanidade.',
+        image: {
+          uri: Image.resolveAssetSource(ImageHqThanos).uri,
+          croped: {
+            uri: Image.resolveAssetSource(ImageCropedHqThanos).uri,
+          },
+        },
+        avalableStores: [
+          {
+            store: {
+              image: {
+                uri: Image.resolveAssetSource(IconAmazonLogo).uri,
+              },
+            },
+          },
+          {
+            store: {
+              image: {
+                uri: Image.resolveAssetSource(IconAmericanasLogo).uri,
+              },
+            },
+          },
+        ],
       },
     ];
 
