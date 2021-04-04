@@ -1,6 +1,20 @@
-import { TopHero, PersonsList, TopComics, ComicList } from '../models';
+import {
+  TopHero,
+  PersonsList,
+  TopComics,
+  ComicList,
+  TopFilms,
+  FilmsList,
+} from '../models';
 
-import { topHeroes, personsList, topComics, ComicsList } from './constants';
+import {
+  topHeroes,
+  personsList,
+  topComics,
+  ComicsList,
+  filmsList,
+  topFilms,
+} from './constants';
 
 export function getTopHeroes(): Promise<TopHero[]> {
   return new Promise(resolve => resolve(topHeroes));
@@ -16,4 +30,12 @@ export function getTopComics(): Promise<TopComics[]> {
 
 export function getComicList(): Promise<ComicList[]> {
   return new Promise(resolve => resolve(ComicsList));
+}
+
+export function getTopFilms(): Promise<TopFilms[]> {
+  return new Promise(resolve => resolve(topFilms));
+}
+
+export function getFilmsList(): Promise<FilmsList> {
+  return new Promise(resolve => resolve(filmsList));
 }

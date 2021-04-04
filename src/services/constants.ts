@@ -1,5 +1,12 @@
 import { Image } from 'react-native';
-import { ComicList, PersonsList, TopComics, TopHero } from '../models';
+import {
+  ComicList,
+  PersonsList,
+  TopComics,
+  TopHero,
+  TopFilms,
+  FilmsList,
+} from '../models';
 
 import {
   ImageCapaOrigemPorJoeQuesada,
@@ -19,6 +26,12 @@ import {
   ImageVision,
   ImageWandaMaximoff,
   ImageWandaVision,
+  ImageAvangersInfinityWar,
+  ImageCaptainAmerica,
+  ImageCaptainMarvel,
+  ImageThorMovie,
+  ImageIronManOne,
+  ImageIronManTwo,
 } from '../assets/images';
 import {
   ImageCropedHqParabola,
@@ -29,6 +42,10 @@ import {
   ImageCropedIronSpider,
   ImageCropedThanos,
   ImageCropedWandaMaximoff,
+  ImageCropedCaptainAmerica,
+  ImageCropedIronMan,
+  ImageCropedIronManTwo,
+  ImageCropedThor,
 } from '../assets/images/croped-images';
 import { IconAmazonLogo, IconAmericanasLogo } from '../assets/icons';
 
@@ -442,3 +459,220 @@ export const ComicsList: ComicList[] = [
     ],
   },
 ];
+
+export const topFilms: TopFilms[] = [
+  {
+    id: 1,
+    name: 'Guerra Infinita',
+    description:
+      'Homem de Ferro, Thor, Hulk e os Vingadores se unem para combater seu inimigo mais poderoso, o maligno Thanos.',
+    image: {
+      uri: Image.resolveAssetSource(ImageAvangersInfinityWar).uri,
+    },
+    persons: [
+      {
+        id: 1,
+        image: {
+          uri: Image.resolveAssetSource(ImageWandaMaximoff).uri,
+        },
+      },
+      {
+        id: 2,
+        image: {
+          uri: Image.resolveAssetSource(ImageIronSpider).uri,
+        },
+      },
+      {
+        id: 3,
+        image: {
+          uri: Image.resolveAssetSource(ImageHulk).uri,
+        },
+      },
+      {
+        id: 4,
+        image: {
+          uri: Image.resolveAssetSource(ImageDoctorStrange).uri,
+        },
+      },
+      {
+        id: 5,
+        image: {
+          uri: Image.resolveAssetSource(ImageCaptainMarvel).uri,
+        },
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: 'Capitão América',
+    description:
+      'Em Capitão América: O Primeiro Vingador, conhecemos a história de Steve Rogers (Chris Evans) e como ele se tornou o melhor soldado do mundo.',
+    image: {
+      uri: Image.resolveAssetSource(ImageCaptainAmerica).uri,
+    },
+    persons: [
+      {
+        id: 6,
+        image: {
+          uri: Image.resolveAssetSource(ImageWandaMaximoff).uri,
+        },
+      },
+      {
+        id: 7,
+        image: {
+          uri: Image.resolveAssetSource(ImageIronSpider).uri,
+        },
+      },
+      {
+        id: 8,
+        image: {
+          uri: Image.resolveAssetSource(ImageHulk).uri,
+        },
+      },
+      {
+        id: 9,
+        image: {
+          uri: Image.resolveAssetSource(ImageDoctorStrange).uri,
+        },
+      },
+      {
+        id: 10,
+        image: {
+          uri: Image.resolveAssetSource(ImageCaptainMarvel).uri,
+        },
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: 'Thor',
+    description:
+      'Quando é banido do reino de Asgard e exilado na Terra, o arrogante guerreiro Thor (Chris Hemsworth) é obrigado a lutar para reaver seus poderes perdidos.',
+    image: {
+      uri: Image.resolveAssetSource(ImageThorMovie).uri,
+    },
+    persons: [
+      {
+        id: 11,
+        image: {
+          uri: Image.resolveAssetSource(ImageWandaMaximoff).uri,
+        },
+      },
+      {
+        id: 12,
+        image: {
+          uri: Image.resolveAssetSource(ImageIronSpider).uri,
+        },
+      },
+      {
+        id: 13,
+        image: {
+          uri: Image.resolveAssetSource(ImageHulk).uri,
+        },
+      },
+      {
+        id: 14,
+        image: {
+          uri: Image.resolveAssetSource(ImageDoctorStrange).uri,
+        },
+      },
+      {
+        id: 15,
+        image: {
+          uri: Image.resolveAssetSource(ImageCaptainMarvel).uri,
+        },
+      },
+    ],
+  },
+];
+
+export const filmsList: FilmsList = {
+  release: [
+    {
+      id: 1,
+      name: 'Homem de Ferro',
+      description:
+        'Tony Stark (Robert Downey Jr.) é um industrial bilionário, que também é um brilhante inventor, ao ser sequestrado...',
+      image: {
+        uri: Image.resolveAssetSource(ImageIronManOne).uri,
+        croped: {
+          uri: Image.resolveAssetSource(ImageCropedIronMan).uri,
+        },
+      },
+    },
+    {
+      id: 2,
+      name: 'Homem de Ferro 2',
+      description:
+        'O mundo já sabe que o inventor bilionário Tony Stark (Robert Downey Jr.) é o super-herói blindado Homem de Ferro...',
+      image: {
+        uri: Image.resolveAssetSource(ImageIronManTwo).uri,
+        croped: {
+          uri: Image.resolveAssetSource(ImageCropedIronManTwo).uri,
+        },
+      },
+    },
+    {
+      id: 3,
+      name: 'Thor',
+      description:
+        'Quando é banido do reino de Asgard e exilado na Terra, o arrogante guerreiro Thor (Chris Hemsworth) é obrigado a lutar para reaver seus poderes perdidos.',
+      image: {
+        uri: Image.resolveAssetSource(ImageThorMovie).uri,
+        croped: {
+          uri: Image.resolveAssetSource(ImageCropedThor).uri,
+        },
+      },
+    },
+    {
+      id: 4,
+      name: 'Capitão América',
+      description:
+        'Em Capitão América: O Primeiro Vingador, conhecemos a história de Steve Rogers (Chris Evans) e como ele se tornou o melhor soldado do mundo.',
+      image: {
+        uri: Image.resolveAssetSource(ImageCaptainAmerica).uri,
+        croped: {
+          uri: Image.resolveAssetSource(ImageCropedCaptainAmerica).uri,
+        },
+      },
+    },
+  ],
+  cronology: [
+    {
+      id: 1,
+      name: 'Capitão América',
+      description:
+        'Em Capitão América: O Primeiro Vingador, conhecemos a história de Steve Rogers (Chris Evans) e como ele se tornou o melhor soldado do mundo.',
+      image: {
+        uri: Image.resolveAssetSource(ImageCaptainAmerica).uri,
+      },
+    },
+    {
+      id: 2,
+      name: 'Capitão Marvel',
+      description:
+        'Capitã Marvel, parte do exército de elite dos Kree, uma raça alienígena, encontra-se no meio de uma batalha entre seu povo e os Skrulls.',
+      image: {
+        uri: Image.resolveAssetSource(ImageCaptainMarvel).uri,
+      },
+    },
+    {
+      id: 3,
+      name: 'Homem de Ferro',
+      description:
+        'Tony Stark (Robert Downey Jr.) é um industrial bilionário, que também é um brilhante inventor, ao ser sequestrado...',
+      image: {
+        uri: Image.resolveAssetSource(ImageIronManOne).uri,
+      },
+    },
+    {
+      id: 4,
+      name: 'Homem de Ferro 2',
+      description:
+        'O mundo já sabe que o inventor bilionário Tony Stark (Robert Downey Jr.) é o super-herói blindado Homem de Ferro...',
+      image: {
+        uri: Image.resolveAssetSource(ImageIronManTwo).uri,
+      },
+    },
+  ],
+};

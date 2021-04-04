@@ -6,3 +6,7 @@ export { default as ImageCropedHqParabola } from './croped-hq-parabola.png';
 export { default as ImageCropedHqThanos } from './croped-hq-thanos.png';
 export { default as ImageCropedHqThor } from './croped-hq-thor.png';
 export { default as ImageCropedHqWolverine } from './croped-hq-wolverine.png';
+export { default as ImageCropedIronMan } from './croped-iron-man.png';
+export { default as ImageCropedIronManTwo } from './croped-iron-man-two.png';
+export { default as ImageCropedThor } from './croped-thor-movie.png';
+export { default as ImageCropedCaptainAmerica } from './crope-captain-america.png';
