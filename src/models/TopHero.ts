@@ -1,10 +1,12 @@
 type Appearances = Array<{
+  id: number;
   image: {
     uri: string;
   };
 }>;
 
 interface TopHero {
+  id: number;
   name: string;
   image: {
     uri: string;

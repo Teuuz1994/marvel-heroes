@@ -1,4 +1,5 @@
 type AvailableStore = Array<{
+  id: number;
   store: {
     image: {
       uri: string;
@@ -7,6 +8,7 @@ type AvailableStore = Array<{
 }>;
 
 interface ComicList {
+  id: number;
   name: string;
   description: string;
   image: {

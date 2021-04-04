@@ -86,7 +86,7 @@ const Persons = () => {
         <AppearencesImagesContent>
           {item.appearances.map(appearence => (
             <AppearenceImage
-              key={appearence.image.uri}
+              key={appearence.id}
               source={{ uri: appearence.image.uri }}
               resizeMode="cover"
             />
@@ -98,7 +98,7 @@ const Persons = () => {
 
   const personsMemoized = useMemo(() => {
     return persons.map(person => (
-      <PersonsContent key={person.name}>
+      <PersonsContent key={person.id}>
         <PersonImage
           source={{ uri: person.image.croped.uri }}
           resizeMode="cover"

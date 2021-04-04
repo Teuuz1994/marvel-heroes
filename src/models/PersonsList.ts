@@ -1,4 +1,5 @@
 interface PersonsList {
+  id: number;
   name: string;
   description: string;
   image: {

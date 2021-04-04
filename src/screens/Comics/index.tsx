@@ -24,10 +24,10 @@ import {
   DescriptionOfHero,
   DescriptionView,
   ReadMore,
-  AppearenceImage,
-  AppearencesView,
-  AppearencesTitle,
-  AppearencesImagesContent,
+  CreatorsView,
+  CreatorImage,
+  CreatorsImageContent,
+  CreatorsTitlte,
   PersonsText,
   PersonsHeader,
   SeeMore,
@@ -49,8 +49,8 @@ const Persons = () => {
 
   const navigation = useNavigation();
 
-  const handleNavigateToMorePersons = () => {
-    navigation.navigate('MorePersons');
+  const handleNavigateToMoreComics = () => {
+    navigation.navigate('MoreComics');
   };
 
   const renderItems = ({ item }: RenderItem) => (
@@ -80,25 +80,25 @@ const Persons = () => {
         <ReadMore adjustsFontSizeToFit>ver mais</ReadMore>
       </DescriptionView>
 
-      <AppearencesView>
-        <AppearencesTitle adjustsFontSizeToFit>Aparições:</AppearencesTitle>
+      <CreatorsView>
+        <CreatorsTitlte adjustsFontSizeToFit>Criadores:</CreatorsTitlte>
 
-        <AppearencesImagesContent>
+        <CreatorsImageContent>
           {item.creators.map(creator => (
-            <AppearenceImage
-              key={creator.image.uri}
+            <CreatorImage
+              key={creator.id}
               source={{ uri: creator.image.uri }}
               resizeMode="cover"
             />
           ))}
-        </AppearencesImagesContent>
-      </AppearencesView>
+        </CreatorsImageContent>
+      </CreatorsView>
     </CarrouselContainer>
   );
 
   const personsMemoized = useMemo(() => {
     return comisList.map(comic => (
-      <PersonsContent key={comic.name}>
+      <PersonsContent key={comic.id}>
         <PersonImage
           source={{ uri: comic.image.croped.uri }}
           resizeMode="cover"
@@ -129,7 +129,7 @@ const Persons = () => {
         ) : (
           <ContentContainer>
             <CarrouselTitle adjustsFontSizeToFit>
-              Top 10 - Personagens Populares
+              Top 10 - HQs Populares
             </CarrouselTitle>
             <Carousel
               layout="stack"
@@ -140,11 +140,11 @@ const Persons = () => {
             />
 
             <PersonsHeader>
-              <PersonsText adjustsFontSizeToFit>Personagens</PersonsText>
+              <PersonsText adjustsFontSizeToFit>Quadrinhos</PersonsText>
 
               <TouchableOpacity
                 activeOpacity={0.8}
-                onPress={handleNavigateToMorePersons}
+                onPress={handleNavigateToMoreComics}
               >
                 <SeeMore adjustsFontSizeToFit>+ Ver todos</SeeMore>
               </TouchableOpacity>

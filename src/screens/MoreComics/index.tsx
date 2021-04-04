@@ -3,54 +3,56 @@ import { TouchableOpacity } from 'react-native';
 
 import {
   AntDesign,
-  MaterialIcons,
   MaterialCommunityIcons,
   FontAwesome,
+  FontAwesome5,
 } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import Modal from 'react-native-modal';
 
 import { MenuToggle, LoadingContainer } from '../../components';
-import { getPersonsList } from '../../services/fakeApi';
-import { PersonsList } from '../../models';
+import { getComicList } from '../../services/fakeApi';
+import { ComicList } from '../../models';
 
 import {
   Container,
   GobackButton,
   Header,
   HeaderTitle,
-  HeroPost,
-  HeroesContainer,
-  HeroPoster,
-  HeroDescriptionContainer,
+  ComicPost,
+  ComicsContainer,
+  ComicPoster,
+  ComicDescriptionContainer,
   DescriptionTitle,
-  DescriptionHeroText,
+  DescriptionComicText,
   SeeMoreDetails,
-  ModalHeroInformationsContainer,
-  CroppedHeroImage,
+  ModalComicInformationsContainer,
+  CroppedComicImage,
   FooterModal,
-  AvailableHero,
+  AvailableComic,
   CloseModalTouchable,
-  ContentInformationsHero,
-  HeroName,
-  Appears,
-  ListOfAppears,
   DividerColumAvailable,
   AvalableOfFans,
   StarsContent,
+  ComicDescription,
+  StoresAvailableTitle,
+  ComicTitle,
+  StoresAvailableContentConteiner,
+  StoresImage,
+  ComicInfoContainer,
   CirclesPagination,
 } from './styles';
 
-const MorePersons = () => {
-  const [heroes, setHeroes] = useState<PersonsList[]>([]);
+const MoreComics = () => {
+  const [comics, setComics] = useState<ComicList[]>([]);
   const [loading, setLoading] = useState(true);
   const [modalDetailsIsOpen, setModalDetailIsOpen] = useState(false);
-  const [heroDetails, setHeroDetails] = useState<PersonsList | null>(null);
+  const [comicsDetails, setComicsDetails] = useState<ComicList | null>(null);
 
   const navigation = useNavigation();
 
-  const toggleOpenModal = useCallback((heroInformations: PersonsList) => {
-    setHeroDetails(heroInformations);
+  const toggleOpenModal = useCallback((comicsInformations: ComicList) => {
+    setComicsDetails(comicsInformations);
     setModalDetailIsOpen(true);
   }, []);
 
@@ -59,16 +61,16 @@ const MorePersons = () => {
   }, []);
 
   const heroesListMemoized = useMemo(() => {
-    return heroes.map(hero => (
-      <HeroPost key={hero.name}>
-        <HeroPoster source={{ uri: hero.image.uri }} />
+    return comics.map(hero => (
+      <ComicPost key={hero.name}>
+        <ComicPoster source={{ uri: hero.image.uri }} />
 
-        <HeroDescriptionContainer colors={['#FF0000', '#8000004D']}>
+        <ComicDescriptionContainer colors={['#FF0000', '#8000004D']}>
           <DescriptionTitle adjustsFontSizeToFit numberOfLines={1}>
             {hero.name}
           </DescriptionTitle>
 
-          <DescriptionHeroText>{hero.description}</DescriptionHeroText>
+          <DescriptionComicText>{hero.description}</DescriptionComicText>
 
           <TouchableOpacity
             activeOpacity={0.8}
@@ -76,16 +78,16 @@ const MorePersons = () => {
           >
             <SeeMoreDetails>ver detalhes</SeeMoreDetails>
           </TouchableOpacity>
-        </HeroDescriptionContainer>
-      </HeroPost>
+        </ComicDescriptionContainer>
+      </ComicPost>
     ));
-  }, [heroes, toggleOpenModal]);
+  }, [comics, toggleOpenModal]);
 
   useEffect(() => {
     const getHeroes = async () => {
-      const heroesList = await getPersonsList();
+      const comicsList = await getComicList();
 
-      setHeroes(heroesList);
+      setComics(comicsList);
       setLoading(false);
     };
     getHeroes();
@@ -101,13 +103,13 @@ const MorePersons = () => {
             <GobackButton activeOpacity={0.8} onPress={navigation.goBack}>
               <AntDesign name="arrowleft" size={20} color="#ff0000" />
             </GobackButton>
-            <MaterialIcons
-              name="people-alt"
+            <FontAwesome5
+              name="book-open"
               size={32}
               color="#ff0000"
               style={{ marginRight: 12.27 }}
             />
-            <HeaderTitle>Personagens</HeaderTitle>
+            <HeaderTitle>HQs</HeaderTitle>
           </Header>
 
           <Modal
@@ -119,31 +121,42 @@ const MorePersons = () => {
             onBackButtonPress={toggleCloseModal}
             hideModalContentWhileAnimating
           >
-            <ModalHeroInformationsContainer colors={['#FF0000', '#800000']}>
-              <CroppedHeroImage
+            <ModalComicInformationsContainer colors={['#FF0000', '#800000']}>
+              <CroppedComicImage
                 source={
-                  heroDetails
-                    ? { uri: heroDetails.image.croped.uri }
+                  comicsDetails
+                    ? { uri: comicsDetails.image.croped.uri }
                     : { uri: '' }
                 }
                 resizeMode="cover"
               />
 
-              <ContentInformationsHero>
-                <HeroName>{heroDetails?.name}</HeroName>
-                <Appears>Aparições:</Appears>
-                {heroDetails?.appearences.map(appear => (
-                  <ListOfAppears adjustsFontSizeToFit key={appear}>
-                    {appear}
-                    {'\n'}
-                  </ListOfAppears>
-                ))}
-              </ContentInformationsHero>
+              <ComicInfoContainer>
+                <ComicTitle>{comicsDetails?.name}</ComicTitle>
+                <ComicDescription>
+                  {comicsDetails?.description}
+                </ComicDescription>
+                <StoresAvailableTitle>
+                  Disponível para compra:
+                </StoresAvailableTitle>
+                <StoresAvailableContentConteiner>
+                  {comicsDetails?.avalableStores.map(store => (
+                    <StoresImage
+                      key={store.id}
+                      source={
+                        comicsDetails
+                          ? { uri: store.store.image.uri }
+                          : { uri: '' }
+                      }
+                    />
+                  ))}
+                </StoresAvailableContentConteiner>
+              </ComicInfoContainer>
 
               <FooterModal>
-                <AvailableHero>
+                <AvailableComic>
                   <DividerColumAvailable>
-                    <AvalableOfFans>Avaliações dos Fãs</AvalableOfFans>
+                    <AvalableOfFans>Crítica:</AvalableOfFans>
                   </DividerColumAvailable>
 
                   <StarsContent>
@@ -153,7 +166,7 @@ const MorePersons = () => {
                     <FontAwesome name="star" size={20} color="#FFB300" />
                     <FontAwesome name="star" size={20} color="#84848D" />
                   </StarsContent>
-                </AvailableHero>
+                </AvailableComic>
 
                 <CloseModalTouchable onPress={toggleCloseModal}>
                   <MaterialCommunityIcons
@@ -163,10 +176,10 @@ const MorePersons = () => {
                   />
                 </CloseModalTouchable>
               </FooterModal>
-            </ModalHeroInformationsContainer>
+            </ModalComicInformationsContainer>
           </Modal>
 
-          <HeroesContainer>{heroesListMemoized}</HeroesContainer>
+          <ComicsContainer>{heroesListMemoized}</ComicsContainer>
 
           <CirclesPagination>
             <FontAwesome
@@ -194,4 +207,4 @@ const MorePersons = () => {
   );
 };
 
-export default MorePersons;
+export default MoreComics;

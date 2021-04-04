@@ -28,7 +28,7 @@ export const HeaderTitle = styled.Text`
   color: ${({ theme }) => theme.colors.white};
 `;
 
-export const HeroesContainer = styled.View`
+export const ComicsContainer = styled.View`
   justify-content: space-around;
   align-items: center;
 
@@ -36,7 +36,7 @@ export const HeroesContainer = styled.View`
   flex-wrap: wrap;
 `;
 
-export const HeroPost = styled.View`
+export const ComicPost = styled.View`
   position: relative;
   width: 161px;
   height: 245px;
@@ -44,14 +44,14 @@ export const HeroPost = styled.View`
   margin-bottom: 26px;
 `;
 
-export const HeroPoster = styled.Image`
+export const ComicPoster = styled.Image`
   width: 100%;
   height: 100%;
 
   border-radius: 30px;
 `;
 
-export const HeroDescriptionContainer = styled(LinearGradient)`
+export const ComicDescriptionContainer = styled(LinearGradient)`
   position: absolute;
   bottom: 0;
 
@@ -71,19 +71,19 @@ export const DescriptionTitle = styled.Text`
   margin-bottom: 14px;
 `;
 
-export const DescriptionHeroText = styled(DescriptionTitle)`
+export const DescriptionComicText = styled(DescriptionTitle)`
   font-size: 8px;
   font-family: ${({ theme }) => theme.fontFamily.Axiforma_Light};
 
   margin-bottom: 21px;
 `;
 
-export const SeeMoreDetails = styled(DescriptionHeroText)`
+export const SeeMoreDetails = styled(DescriptionComicText)`
   font-size: 12px;
   margin-bottom: 0;
 `;
 
-export const ModalHeroInformationsContainer = styled(LinearGradient)`
+export const ModalComicInformationsContainer = styled(LinearGradient)`
   position: relative;
   width: 328px;
   height: 602px;
@@ -91,7 +91,7 @@ export const ModalHeroInformationsContainer = styled(LinearGradient)`
   border-radius: 28px;
 `;
 
-export const CroppedHeroImage = styled.Image`
+export const CroppedComicImage = styled.Image`
   width: 100%;
   height: 169px;
 
@@ -99,36 +99,6 @@ export const CroppedHeroImage = styled.Image`
 
   position: absolute;
   top: 0;
-`;
-
-export const ContentInformationsHero = styled.View`
-  width: 100%;
-
-  justify-content: flex-start;
-  align-items: flex-start;
-
-  margin-top: 150px;
-  padding: 26px;
-`;
-
-export const HeroName = styled.Text`
-  font-family: ${({ theme }) => theme.fontFamily.Axiforma_Bold};
-  font-size: 20px;
-  color: ${({ theme }) => theme.colors.white};
-
-  margin-top: 34px;
-  margin-bottom: 15px;
-`;
-
-export const Appears = styled(HeroName)`
-  font-size: 16px;
-  margin-top: 0;
-  margin-bottom: 0;
-`;
-
-export const ListOfAppears = styled(Appears)`
-  font-family: ${({ theme }) => theme.fontFamily.Axiforma_Light};
-  font-size: 6px;
 `;
 
 export const FooterModal = styled.View`
@@ -144,16 +114,18 @@ export const DividerColumAvailable = styled.View`
   align-items: flex-start;
 `;
 
-export const AvailableHero = styled.View`
+export const AvailableComic = styled.View`
   justify-content: flex-start;
   align-items: flex-start;
   padding: 15px;
 `;
 
-export const AvalableOfFans = styled(HeroName)`
+export const AvalableOfFans = styled.Text`
   font-size: 18px;
   margin-top: 0;
   margin-bottom: 11.86px;
+  font-family: ${({ theme }) => theme.fontFamily.Axiforma_Bold};
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 export const StarsContent = styled.View`
@@ -165,8 +137,47 @@ export const StarsContent = styled.View`
 export const CloseModalTouchable = styled.TouchableOpacity`
   position: absolute;
 
-  right: -80px;
+  right: -180px;
   top: 45px;
+`;
+
+export const ComicInfoContainer = styled.View`
+  padding: 20px;
+`;
+
+export const ComicTitle = styled.Text`
+  font-family: ${({ theme }) => theme.fontFamily.Axiforma_Bold};
+  font-size: 20px;
+  color: ${({ theme }) => theme.colors.white};
+  margin-bottom: 20px;
+  margin-top: 190px;
+`;
+
+export const ComicDescription = styled.Text`
+  font-family: ${({ theme }) => theme.fontFamily.Axiforma_Light};
+  font-size: 16px;
+  color: ${({ theme }) => theme.colors.white};
+  margin-bottom: 18px;
+`;
+
+export const StoresAvailableTitle = styled(ComicDescription)`
+  font-family: ${({ theme }) => theme.fontFamily.Axiforma_Regular};
+  font-size: 12px;
+  margin-bottom: 16px;
+`;
+
+export const StoresAvailableContentConteiner = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+`;
+
+export const StoresImage = styled.Image`
+  width: 50px;
+  height: 50px;
+
+  border-radius: 9px;
+  margin-right: 18px;
 `;
 
 export const CirclesPagination = styled.View`

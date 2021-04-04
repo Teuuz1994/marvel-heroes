@@ -115,18 +115,18 @@ export const ReadMore = styled.Text`
   margin-top: 11px;
 `;
 
-export const AppearencesView = styled.View`
+export const CreatorsView = styled.View`
   background-color: ${({ theme }) => theme.colors.black};
   padding: 5px;
 `;
 
-export const AppearencesImagesContent = styled.View`
+export const CreatorsImageContent = styled.View`
   flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
 `;
 
-export const AppearencesTitle = styled.Text`
+export const CreatorsTitlte = styled.Text`
   font-size: 16px;
   font-family: ${({ theme }) => theme.fontFamily.Axiforma_Regular};
   color: ${({ theme }) => theme.colors.white};
@@ -135,7 +135,7 @@ export const AppearencesTitle = styled.Text`
   margin-bottom: 11px;
 `;
 
-export const AppearenceImage = styled.Image`
+export const CreatorImage = styled.Image`
   width: 55px;
   height: 55px;
 
@@ -150,7 +150,7 @@ export const PersonsHeader = styled.View`
   align-items: center;
 `;
 
-export const PersonsText = styled(AppearencesTitle)`
+export const PersonsText = styled(CreatorsTitlte)`
   margin-top: 0;
 `;
 
