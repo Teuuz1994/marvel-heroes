@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 
 import { LinearGradient } from 'expo-linear-gradient';
+import { Picker } from '@react-native-picker/picker';
 
 export const Container = styled.ScrollView`
   width: 100%;
@@ -97,6 +98,20 @@ export const FilmsContainer = styled.View`
 export const PickerSelectContent = styled.View`
   justify-content: flex-start;
   align-items: center;
+  margin-top: -10px;
+  margin-bottom: 26px;
+  margin-left: 30px;
 
-  margin-top: 17px;
+  width: 220px;
+  height: 54px;
+
+  border-width: 2px;
+  border-color: ${({ theme }) => theme.colors.red};
+  border-radius: 10px;
+`;
+
+export const PickerSelect = styled(Picker)`
+  width: 200px;
+  height: 54px;
+  color: ${({ theme }) => theme.colors.red};
 `;

@@ -11,7 +11,6 @@ import { Picker } from '@react-native-picker/picker';
 import { MenuToggle, LoadingContainer } from '../../components';
 import { getFilmsList } from '../../services/fakeApi';
 import { FilmsList } from '../../models';
-import { Cronology, Release } from '../../models/FilmsList';
 
 import {
   Container,
@@ -27,56 +26,83 @@ import {
   SeeMoreDetails,
   FilmsContainer,
   PickerSelectContent,
+  PickerSelect,
 } from './styles';
 
 const MoreFilms = () => {
   const [filmsList, setFilmsList] = useState<FilmsList>({} as FilmsList);
-  const [typeFilmList, setTypeFilmList] = useState<Cronology[] | Release[]>([]);
   const [pickerSelected, setPickerSelected] = useState('');
   const [loading, setLoading] = useState(true);
 
   const navigation = useNavigation();
 
   const filmsListMemoized = useMemo(() => {
-    if (typeFilmList.length === 0) {
-      return null;
+    if (Object.keys(filmsList).length > 0) {
+      if (pickerSelected === 'release') {
+        return filmsList.release.map(film => (
+          <FilmPost key={film.id}>
+            <FilmPoster source={{ uri: film.image.uri }} />
+
+            <FilmDescriptionContainer colors={['#FF0000', '#8000004D']}>
+              <DescriptionTitle adjustsFontSizeToFit numberOfLines={1}>
+                {film.name}
+              </DescriptionTitle>
+
+              <DescriptionFilmText>{film.description}</DescriptionFilmText>
+
+              <SeeMoreDetails>ver detalhes</SeeMoreDetails>
+            </FilmDescriptionContainer>
+          </FilmPost>
+        ));
+      }
+
+      if (pickerSelected === 'cronology') {
+        return filmsList.cronology.map(film => (
+          <FilmPost key={film.id}>
+            <FilmPoster source={{ uri: film.image.uri }} />
+
+            <FilmDescriptionContainer colors={['#FF0000', '#8000004D']}>
+              <DescriptionTitle adjustsFontSizeToFit numberOfLines={1}>
+                {film.name}
+              </DescriptionTitle>
+
+              <DescriptionFilmText>{film.description}</DescriptionFilmText>
+
+              <SeeMoreDetails>ver detalhes</SeeMoreDetails>
+            </FilmDescriptionContainer>
+          </FilmPost>
+        ));
+      }
+
+      return filmsList.release.map(film => (
+        <FilmPost key={film.id}>
+          <FilmPoster source={{ uri: film.image.uri }} />
+
+          <FilmDescriptionContainer colors={['#FF0000', '#8000004D']}>
+            <DescriptionTitle adjustsFontSizeToFit numberOfLines={1}>
+              {film.name}
+            </DescriptionTitle>
+
+            <DescriptionFilmText>{film.description}</DescriptionFilmText>
+
+            <SeeMoreDetails>ver detalhes</SeeMoreDetails>
+          </FilmDescriptionContainer>
+        </FilmPost>
+      ));
     }
 
-    return typeFilmList.map((film: any) => (
-      <FilmPost key={film.id}>
-        <FilmPoster source={{ uri: film.image.uri }} />
-
-        <FilmDescriptionContainer colors={['#FF0000', '#8000004D']}>
-          <DescriptionTitle adjustsFontSizeToFit numberOfLines={1}>
-            {film.name}
-          </DescriptionTitle>
-
-          <DescriptionFilmText>{film.description}</DescriptionFilmText>
-
-          <SeeMoreDetails>ver detalhes</SeeMoreDetails>
-        </FilmDescriptionContainer>
-      </FilmPost>
-    ));
-  }, [typeFilmList]);
+    return null;
+  }, [filmsList, pickerSelected]);
 
   useEffect(() => {
     const getHeroes = async () => {
       const getFilms = await getFilmsList();
 
       setFilmsList(getFilms);
-      setTypeFilmList(getFilms.release);
       setLoading(false);
     };
     getHeroes();
-  }, []);
-
-  useEffect(() => {
-    if (pickerSelected === 'release') {
-      setTypeFilmList(filmsList.release);
-    }
-
-    setTypeFilmList(filmsList.cronology);
-  }, [filmsList.cronology, filmsList.release, pickerSelected]);
+  }, [filmsList.cronology, filmsList.release]);
 
   return (
     <MenuToggle showSidebarMenu={false}>
@@ -98,16 +124,32 @@ const MoreFilms = () => {
           </Header>
 
           <PickerSelectContent>
-            <Picker
-              onValueChange={(value, index) => setPickerSelected(String(value))}
+            <PickerSelect
+              selectedValue={pickerSelected}
+              mode="dropdown"
+              dropdownIconColor="#ff0000"
+              onValueChange={value => setPickerSelected(String(value))}
+              style={{
+                width: 200,
+                height: 54,
+                color: '#ff0000',
+                marginBottom: 26,
+                marginLeft: 30,
+              }}
+              itemStyle={{
+                borderWidth: 2,
+                borderColor: '#ff0000',
+                backgroundColor: '#000',
+              }}
             >
+              <Picker.Item label="Filtrar Por" value="" color="#ff0000" />
               <Picker.Item label="Lançamento" value="release" color="#ff0000" />
               <Picker.Item
                 label="Cronologia"
                 value="cronology"
                 color="#ff0000"
               />
-            </Picker>
+            </PickerSelect>
           </PickerSelectContent>
 
           <FilmsContainer>{filmsListMemoized}</FilmsContainer>
