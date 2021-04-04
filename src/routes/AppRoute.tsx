@@ -17,7 +17,7 @@ export const AppRoute = () => {
         initialRouteName="Persons"
         screenOptions={{
           headerShown: false,
-          ...TransitionPresets.ModalSlideFromBottomIOS,
+          ...TransitionPresets.RevealFromBottomAndroid,
         }}
       >
         <Stack.Screen name="Persons" component={Persons} />

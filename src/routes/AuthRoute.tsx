@@ -17,7 +17,7 @@ export const AuthRoute = () => {
         initialRouteName="SignIn"
         screenOptions={{
           headerShown: false,
-          ...TransitionPresets.ModalSlideFromBottomIOS,
+          ...TransitionPresets.RevealFromBottomAndroid,
         }}
       >
         <Stack.Screen name="SignIn" component={SignIn} />
