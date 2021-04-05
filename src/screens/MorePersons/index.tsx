@@ -118,6 +118,10 @@ const MorePersons = () => {
             onBackdropPress={toggleCloseModal}
             onBackButtonPress={toggleCloseModal}
             hideModalContentWhileAnimating
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
           >
             <ModalHeroInformationsContainer colors={['#FF0000', '#800000']}>
               <CroppedHeroImage

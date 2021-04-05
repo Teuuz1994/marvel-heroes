@@ -120,6 +120,10 @@ const MoreComics = () => {
             onBackdropPress={toggleCloseModal}
             onBackButtonPress={toggleCloseModal}
             hideModalContentWhileAnimating
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
           >
             <ModalComicInformationsContainer colors={['#FF0000', '#800000']}>
               <CroppedComicImage
