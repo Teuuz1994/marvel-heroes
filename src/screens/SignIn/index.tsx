@@ -114,6 +114,9 @@ const SignIn = () => {
               true: '#ff0000',
               false: '#fff',
             }}
+            style={{
+              marginTop: -8,
+            }}
           />
           <SaveMyLogin adjustsFontSizeToFit>
             Salvar dados de login entre automaticamente
